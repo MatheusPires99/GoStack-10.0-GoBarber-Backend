@@ -25,6 +25,13 @@ class ProviderScheduleController {
           [Op.between]: [startOfDay(parsedDate), endOfDay(parsedDate)],
         },
       },
+      include: [
+        {
+          model: User,
+          as: "user",
+          include: ["name"],
+        },
+      ],
       order: ["date"],
     });
 
