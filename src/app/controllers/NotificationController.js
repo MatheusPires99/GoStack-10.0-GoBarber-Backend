@@ -16,7 +16,7 @@ class NotificationController {
     const notifications = await Notification.find({
       provider: req.userId,
     })
-      .sort({ createdAt: "desc" })
+      .sort({ createdAt: "asc" })
       .limit(20);
 
     return res.json(notifications);
